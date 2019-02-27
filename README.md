@@ -32,8 +32,8 @@ int main(){
    	if(n < 0)
 		printf("Error Creating Child Process!\n");
   	else if(n == 0){
-    	printf("This is Child Process, ID: %d, Parent's ID: %d\n", getpid(),getppid());
-    	printf("Enter the number: ");
+		printf("This is Child Process, ID: %d, Parent's ID: %d\n", getpid(),getppid());
+		printf("Enter the number: ");
   		scanf("%d", &num);
 		printf("%d ",num);
 		while(num/2){
