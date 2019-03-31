@@ -9,12 +9,18 @@ int main(){
 		printf("Error Creating Child Process!\n");
   	else if(n == 0){
 		printf("This is Child Process, ID: %d, Parent's ID: %d\n", getpid(),getppid());
-		printf("Enter the number: ");
+		check:
+		printf("Enter a positive number: ");
   		scanf("%d", &num);
-		printf("%d ",num);
-		while(num/2){
-			printf("%d ",num/2);
-			num /= 2;
+		if(num < 0){
+			printf("Incorrect Value Entered!");
+			goto check;
+		}
+		else{
+			while(num/2){
+				printf("%d ",num/2);
+				num /= 2;
+			}	
 		}
 		printf("Sequence Completed!\n");
 	}
