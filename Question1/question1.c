@@ -17,8 +17,8 @@ int main(){
 			goto check;
 		}
 		else{
-			while(num/2){
-				printf("%d ",num/2);
+			while(num){
+				printf("%d ",num);
 				num /= 2;
 			}	
 		}
