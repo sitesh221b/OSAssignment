@@ -1,4 +1,4 @@
-##To run the program\n###Compile the code\n### objectFile SourceFileName DestinationFileName
+##To run the program
 
 ```
 gcc q2.c
