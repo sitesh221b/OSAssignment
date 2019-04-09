@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<unistd.h>
-#include<std/types.h>
+#include<sys/wait.h>
 
 int main(){
 	pid_t n = fork();
@@ -13,21 +13,21 @@ int main(){
 		printf("Enter a positive number: ");
   		scanf("%d", &num);
 		if(num < 0){
-			printf("Incorrect Value Entered!");
+			printf("Incorrect Value Entered!\n");
 			goto check;
 		}
 		else{
+			printf("%d ",num);
 			while(num){
-				printf("%d ",num);
 				num /= 2;
+				printf("%d ",num);
 			}	
 		}
-		printf("Sequence Completed!\n");
+		printf("\nSequence Completed!\n");
 	}
 	else{
 		wait(NULL);
 		printf("This is Parent Process, ID: %d, Parent's ID: %d\n", getpid(), getppid());
 	}
-  }
-  return 0;
+  	return 0;
 }
