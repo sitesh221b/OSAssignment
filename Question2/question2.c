@@ -3,6 +3,10 @@
 #include<fcntl.h>
 #include<stdlib.h>
 
+//To run this code first compile the code then object file and filesname respectively
+//	gcc q2.c
+//	./a.out in.txt out.txt
+
 int main(int argc, char *argv[]){   //To give the filename for input and output while compiling
     int pipefd[2];
     int fd;
@@ -22,7 +26,7 @@ int main(int argc, char *argv[]){   //To give the filename for input and output 
     }
     else if(p > 0){
     
-        printf("This is Parent Process\n");
+        printf("This is Parent Process - Reading from source file and writing to one end of pipe\n");
         
         close(pipefd[0]);   //Closing reading end
         fd = open(sourceFileName, O_RDONLY, 0777);
@@ -32,16 +36,16 @@ int main(int argc, char *argv[]){   //To give the filename for input and output 
     }
     else if(p == 0){
     
-        printf("This is Child Process\n");
+        printf("This is Child Process - Reading from pipe and writing to destination file\n");
         
         //Reading the source file
         close(pipefd[1]);   //Closing the writing end
-        readLength = read(pipefd[0], buff, 100);
+        readLength = read(pipefd[0], childBuff, 100);
         close(pipefd[0]);
         
         //Writing in destination file
         fd = open(destinationFileName, O_CREAT | O_WRONLY, 0777);
-        write(fd, buff, readLength);
+        write(fd, childBuff, readLength);
     }
     return 0;
 }
