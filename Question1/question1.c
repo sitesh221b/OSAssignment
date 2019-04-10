@@ -17,10 +17,9 @@ int main(){
 			goto check;
 		}
 		else{
-			printf("%d ",num);
 			while(num){
-				num /= 2;
 				printf("%d ",num);
+				num /= 2;
 			}	
 		}
 		printf("\nSequence Completed!\n");
