@@ -1,11 +1,7 @@
 #include<stdio.h>
-#include<unistd.h>
 #include<fcntl.h>
 #include<stdlib.h>
-
-//To run this code first compile the code then object file and filesname respectively
-//	gcc q2.c
-//	./a.out in.txt out.txt
+#include<unistd.h>
 
 int main(int argc, char *argv[]){   //To give the filename for input and output while compiling
     int pipefd[2];
